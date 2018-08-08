@@ -1,9 +1,27 @@
+## Introduction
 
+<p align='justify'>The project is for people who love data science and have grown up playing football and are FIFA enthusiasts. The data is scraped from the website https://sofifa.com by extracting the Player personal data, followed by Player IDs and their playing and style statistics.
 
+Insights and correlations between player value, wage, age, special attributes, and performance can be derived from the dataset. This uninterpreted data can be converted into information by analysing it. We have derived summary statistics for teams, clubs, & players. Through extensive football experience: the insights provided in our results, alongwith understanding, and contextualized information enables users to act smartly when playing FIFA, picking a better team for say Fantasy Premier league, or increase their betting odds.
+</p>
+
+### Explorations Achieved using the data
+* World statistics
+* Clustering players by Nationality
+* Value & Wages of players with age
+* Value of players with position
+* Overall & Potential with age
+* Variation of overall & potential by country for top countries
+* Correlation matrix - attributes vs potential and overall
+* Variation in wages for top clubs
+* Age vs overall clustered by field position
+* Make your dream team
+* Predicting playing position using player statistics
 
 ## The Data
 
 ### Data Description
+
 <p align='justify'>The data was scrapped from the sofifa website using a python crawling script. The website contains the data from the EA Sports' game FIFA and gets updated regularly with the release of new versions of the game. data developed by Electronic Arts for the latest edition of their FIFA game franchise. Through several research projects done on soccer analytics, it has been established in the field of academia that the use of data from the FIFA franchise has several merits that traditional datasets based on historical data do not offer. Since 1995 the FIFA Soccer games provide an extensive and coherent scout of players worldwide.</p>
 
 <p align='justify'>For each attribute, we have an integer from 0 to 100 that measures how good a player is at that attribute. Examples of attributes are: dribbling, aggression, vision, marking and ball control. Observe that it seems to be unfeasible to accurately characterize players in these attributes automatically. Thus, all of those are gathered and curated by the company whose job is to bring the gameplay closer to reality as possible, hence preserving coherence and representativeness across the dataset.</p>
@@ -176,7 +194,7 @@ Next we have focused on the distribution of player value over the ages as oppose
 
 <p align='justify'>In the next plot we try to focus on the distribution of the weekly wage values versus age using violin plots (with box plots inset inside them). Again we use the violin plot here as it is much more informative in terms of showing probability of how much of the player population is occurring at a particular value of weekly wage for a particular age group.</p>
 
-<p align='center'>![Rating vs Age](WagevsAgeViolin.png)</p>
+![Rating vs Age](WagevsAgeViolin.png)
 
 <p align='justify'>Here we observe that almost across all ages the weekly wage is uniformly distributed 25-75k range as apparent from the distribution of density kernel shape. The average weekly wage is however being driven up due to extremely well paid players in each group, which are visible as outlying points in the point. From ages 25-32 we can also see that there is a large distribution of players who earn more than 100K euros a week. Not surprisingly almost all 18 year olds are clustered around the same starting weekly wage value, almost all distribution across the density kernel width is at around 30K. Players at age 34 seem to have the most uniform distribution of weekly wage, with nearly 75% in the middle have weekly wages in the range 60K to 115K. </p>
 
@@ -185,17 +203,32 @@ Next we have focused on the distribution of player value over the ages as oppose
 
 <p align='justify'>Here we attempt to show the distribution of player value at different positions. We have associated each player to their preferred position or where they are most likely to play (available in the data as an array of preferred positions for each player). We are making use of box plots with whiskers as well outliers to show the distribution of player value across all popularly played positions in football. Observations from the box plot can help new players and managers get an idea of current player valuation trends at each position.</p>
 
-<p align='center'>
 ![Rating vs Age](ValuevsPosBox.png)
-</p>
 
 <p align='justify'> From plotting the data one can see there are clear divisions in player valuation across player position. For the purpose of comparison we are only using the top 100 players in each position. The group with least valuation is of the two wing backs (right and left) having a median valuation of just 1.4-2.1M Euros. This is followed by a group consisting of 4 positions with nearly same valuations – Center Forward, Left Back, Right Back and the Goalkeeper. Surprisingly Center forward which used to be a traditional forward role seems to be eclipsed by roles such as Strikers and Central Attacking Midfielders. The median valuation for Center forwards is 7.5M. Left and Right back defenders have median values of 9.5-10M Euros and Goalkeepers round off this group with median player value of 11M. However there are a lot of goalkeeper outliers who have value of as much as around 60M. </p>
 
-<p align='right'>
 ![Rating vs Age](valfpos.png)
-</p>
 
 <p align='justify'>The next group consists of the Left and Right wing forwards, Central Defensive midfielder, and the left and right midfielders. All these positions have a player value median in the range of 14.5M to 18.5M.  Though players between Q1 and Q3 are almost evenly distributed across these groups, it’s the outliers here which are most distinctive. Neymar with a valuation of 123M is a distinct left forward outliers. Others include Lionel Messi at 105M as well as Christiano Ronaldo at 95.5M as right forwards. The next and most valued group consists of the Center Back, the Central Attacking Midfielder, Central Midfielder and finally the Striker. The median value varies from 19 to 23.5M for this group, with both midfielder and the striker positions having many high value outliers like Luis Suarez who as a striker is valued at 97M Euros.</p>
+
+### Top players by playing position
+<p align='justify'>In the FIFA 18 dataset, there is a score by each player for every possible position on the field. Some players are more versatile, and have good rankings for multiple positions as well. We have tried to get the top 10 players by their position score  (not overall/potential) to make an informed choice of which player to pick for which position.
+The most appropriate way to show any data with only categorical (explanatory) variables, is not as a graph but a table. Hence, we have gone with a simple tabular representation where the rankings of the 10 players (in decreasing order of their potential to score) for each position has been shown.</p>
+
+![Rating vs Age](topbyposn.png)
+
+<p align='justify'>L. Messi and C. Ronaldo seem to be the most consistent players of the lot having top rankings at over 3 positions. Some players have top rankings in a single position category making them the best but don’t appear anywhere in other categories like T.Kroos. As a general trend it is noticed that top players of each position play consistently across Center, left, and right positions of the same category.
+
+This can be used to make smart & informed decisions about which player to pick for what position not just independently but relatively seeing rankings and consistency of choices across the board. This always gives a good idea of betting odds of a player to success when he is already playing at a certain position.</p>
+
+### Are they really worth it?
+<p align='justify'>Players have two monetary attributes to them – Wage and Value. There is a large variation between the numbers both in terms of scale, delta difference, and consistency. We wanted to find out if the most valuable players are actually worth that much when to comes to wages. Also, we wanted to see if there is a common trend of players being value higher with comparison to their potential.We chose to present this using a multi axis chart combination chart because of different axis scales for `Overall Score + Potential (on primary y axis)`, `Value (secondary y axis)`, `Wage (Secondary 2 y axis)`. Stacked bar for `Score` and `Potential` because `Potential >= Overall` score so this will give us an idea of players performing to maximum potential and otherwise.
+
+![Rating vs Age](worth.png)
+
+We found out that Neymar – the player with the highest value  lies in the lower wage category of Top 25 most valued players whereas Sanchez and S. Aguero have wages in Top 5 despite being ranked in the lower side of most valued players. L. Messi, L. Suarez, and C. Ronaldo seem to be most consistent in both categories and have also performed to the best of their potential. P. Dybala and P. Pogba have the most difference between Potential and performance.
+
+We discovered that wages and values do not necessarily correlate with each other in a direct sense, the next step of further improvement would be to find out the factors that affect the value and wage and wages of a player and their corresponding significance (coefficients).</p>
 
 ### Correlation between player attributes
 
@@ -204,3 +237,5 @@ Next we have focused on the distribution of player value over the ages as oppose
 ![Rating vs Age](heatmap.png)
 
 <p align='justify'>To deduce which are the skills correlated with the overall, we chose a correlation coefficient greater than or equal to 0.5. Anything between 0.3 and 0.5 is attributed to being mildly correlated.</p>
+
+## 
