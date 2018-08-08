@@ -6,8 +6,6 @@
 ### Data Description
 <p align='justify'>The data was scrapped from the sofifa website using a python crawling script. The website contains the data from the EA Sports' game FIFA and gets updated regularly with the release of new versions of the game. data developed by Electronic Arts for the latest edition of their FIFA game franchise. Through several research projects done on soccer analytics, it has been established in the field of academia that the use of data from the FIFA franchise has several merits that traditional datasets based on historical data do not offer. Since 1995 the FIFA Soccer games provide an extensive and coherent scout of players worldwide.</p>
 
-<div style="page-break-after: always;"></div>
-
 <p align='justify'>For each attribute, we have an integer from 0 to 100 that measures how good a player is at that attribute. Examples of attributes are: dribbling, aggression, vision, marking and ball control. Observe that it seems to be unfeasible to accurately characterize players in these attributes automatically. Thus, all of those are gathered and curated by the company whose job is to bring the gameplay closer to reality as possible, hence preserving coherence and representativeness across the dataset.</p>
 
 <p align='justify'>The FIFA 18 dataset that has been used for this analysis provides statistics of about 16000 players on over 70 different attributes. These attributes are optimal indicators to determine the performance of a player at a particular playing position.</p>
@@ -72,14 +70,16 @@ Index(['ID', 'Photo', 'Name', 'Age', 'Nationality', 'Flag', 'Overall',
 
 <p align='justify'>After preparing the dataset for analysis, explorations were made on a macro level like continent and player nationality level analysis as well as on player level. Through the process attempts were made to derive interesting correlations and trends by the use of visualizations.</p>
 
-<br><br>
-
 ### Geographic distribution of players
-<p align='justify'>---Insert text here----</p>
+<p align='justify'>Circle-packing is the arrangement of circles inside some demarcation so that none of the circles overlap. Circle packing also displays hierarchy where you can get smaller clusters of circles packed within a bigger circle which itself is arranged next to or within other circles. The D3.js plot will be interactive and dynamic, where one is able to invoke zoomable animations at different regions and clusters with the click of a mouse button.
+The D3.js plot will be interactive and dynamic, where one is able to invoke zoomable animations at different regions and clusters with the click of a mouse button. Each of the player’s nationality was mapped to its respective continent. There were 162 distinct Nationality values in the dataset and these countries were mapped to 6 continents: Asia, Europe, Africa, North America, South America and Australia/Oceania. In the plot, the 6 continents will be the parent class (outer circles). We can dive deeper within this class to find the countries (sub-class / sub-circles) and within each country, we will find the players (inner circles). The size of the player circle is determined by the Overall variable. A continent dictionary was created with the names of the continents as the keys and the list of countries as the values for each key. A function was defined to assign the continent for each country. The top 2000 players were chosen based on the overall value. Groupings of the players were hence identified using the Nationality and Continent. This grouping will be displayed with the circle graph plot and is fed into the json file. The data to be displayed is stored in the json file.
+</p>
 
 ![Geographic distribution of players](coolplot.png)
 
-<p align='justify'>---Insert text here---</p>
+<p align='justify'>Most of the top players are concentrated in Europe and South America. These two circles are significantly bigger than the other circles. Africa, Asia and North America have only few top players compared to Europe and South America. This is clearly seen from the size of the circles. In Europe, (insert country names appropriately seeing the graph, I mean the bigger circles in Europe) have a good number of top players. (Feel free to edit this part to make more sense. I really need help here)
+</p>
+
 
 ### Nationality wise analysis
 
@@ -150,12 +150,57 @@ As we can see from the above graph, we notice that overall and potential meet ap
 This analysis can be useful for while creating a squad as the age can be used as a factor in deciding whether a player should be retained or dropped. A way that this can be further enhanced is to find the trend of each player attribute across ages to determine the age at which each player attribute peaks.
 </p>
 
-### Analysis of Player Value over Age
+### Analysis of Mean Player Value versus Age
 
-<p align='justify'>Player value parameter in our data is the monetary figure which is a player should sell for in the current market based mainly on their performance, age and position. Here we try to analyse the mean player value over ages 18 to 36, for the top 1000 players ranked as per their overall potential. For this purpose we try to subset the data from original dataset to get players first in the age range and then select the top 1000 players from there. We have used a box chart as well a line chart here to display the data, with the Ages on the x-axis and the Average Player Value(in millions of Euros) on the y-axis. As per this chart, we can see that their seem to be two peaks for Player value – One right at age 18(20.4 M Euros) , and the other at age 25(20.8 M Euros). This seems to indicate that young players entering 18 years of age tend to be traded at high values across clubs due to their sheer potential. After 18,their appears to be a sharp drop at age 19. Average player value rises from age 19 onwards to peak at 25, following which there is gradual decline till age 32. Player value sharply falls after that, most likely due to the fact that older players in their mid-late 30s are considered to have spent their potential by then and have less resale value among clubs, in spite of the fact that they are more experienced. </p>
+<p align='justify'>Here we will be analysing the mean player value over ages 18 to 36, for the top 1000 players ranked as per their overall potential. We have used a bar chart along with a line chart here to display the data, with the ages on the x-axis and the average player value (in millions of Euros) on the y-axis. The observations from this chart can be used by both new players as well association football management to get an idea of current player valuation trends with regards to players at different
+ages.</p>
 
-[Rating vs Age](ovrpotage.png)
+![Rating vs Age](ValuevsAgeBox.png)
 
 <p align='justify'>
-Next we have focused on the distribution of player value over the ages as opposed to previous plot of average values. For this purpose we have used violin plots, with box plot within. The violin plot is more informative than a simple box plot here because not only does it convey the distribution of the Player Value at each age (through Min,Q1,Median,Q3,Max) but it also shows the kernel density i.e. how common each Player Value point is by the width of its shape. The observations here are that most Player Values(between Q1 and Q3) across all ages have nearly the same kernel density(kernel datapoints are players); It’s the high performing players who are outliers and pulling up average values at each age. One departure however is again at the age 18, where from the shape of the violin we can make out that 18 year old players are most evenly distributed in the range 8-36 Million, therefore bringing up averages across all 18 year olds. Again goes to show how much youth is valued for it’s potential in football. Also from the distribution it is apparent that player valuation decreases post 32 for nearly all players apparent from  the violin density. From the density we can also make out that there are far fewer active older players as well as players aged 19-20 who are in the top 1000.
+As per this chart, we can see that are two peaks for player value – One right at age 18(20.4 M Euros), and the other at age 25(20.8 M Euros). This seems to indicate that young players entering 18 years of age tend to be traded at high values across clubs due to their sheer potential. After 18, there appears to be a sharp drop at age 19. Average player value rises from age 19 onwards to peak at 25, following which there is gradual decline till age 32. Player value sharply falls after that, most likely due to the fact that older players in their mid-late 30s are considered to have spent their potential by then and have less resale value among clubs, in spite of the fact that they are more experienced.
+Next we have focused on the distribution of player value over the ages as opposed to previous plot of average values. For this purpose we have used violin plots, with box plot within. The violin plot is more informative than a simple box plot here because not only does it convey the distribution of the Player Value at each age (through Min,Q1,Median,Q3,Max) but it also shows the kernel density i.e. how common each player value point is by the width of its shape.  
 </p>
+
+========== Violin plot Mean Player Value versus Age ==========
+
+<p align='justify'>The observations here are that most player (between Q1 and Q3) across all ages have nearly violin width. It’s the high performing players who are outliers and pulling up average values at each age. One departure however is again at the age 18, where from the shape of the violin we can make out that 18 year old players are most evenly distributed in the range 8-36 Million. Thus players debuting at age 18 have confirmed chance of being valued highly. Also from the distribution it is apparent that player valuation decreases post 32 for nearly all players apparent from the violin density. </p>
+
+### Analysis of Player Weekly wage over Age
+
+<p align='justify'>We have used box plots and line plots to show the average weekly wage of players (y-axis) versus the age of players (x-axis). As before we are only considering the subset of top 1000 players aged between 18 and 36. Like the valuation data, observations from this plot can be used by new players and association football management to get an idea of current player wages for different age groups.</p>
+
+![Rating vs Age](WagevsAgeBox.png)
+
+<p align='justify'>Unlike with Player Value, Average Player weekly Wage is at its lowest(27K Euros) at 18 years age and then steadily rises till peaking(93.6K Euros) at age 34, and then from there it starts to fall. This trend shows us that whereas Player Value was more dependent on the potential of the player, player wages are more affected by the experience of the player and their seniority in teams.. The increase in player weekly wage is also much more gradual with age as compared to player value, which was prone to much variation. One anomaly is the sharp dip in average weekly wage at age 33 as compared to ages 32 and 34. This can be attributed to the fact that there may not be many players currently in the top 1000 who are of age 33, and the ones who are there seem to have lower weekly wage values.</p>
+
+<p align='justify'>In the next plot we try to focus on the distribution of the weekly wage values versus age using violin plots (with box plots inset inside them). Again we use the violin plot here as it is much more informative in terms of showing probability of how much of the player population is occurring at a particular value of weekly wage for a particular age group.</p>
+
+<p align='center'>![Rating vs Age](WagevsAgeViolin.png)</p>
+
+<p align='justify'>Here we observe that almost across all ages the weekly wage is uniformly distributed 25-75k range as apparent from the distribution of density kernel shape. The average weekly wage is however being driven up due to extremely well paid players in each group, which are visible as outlying points in the point. From ages 25-32 we can also see that there is a large distribution of players who earn more than 100K euros a week. Not surprisingly almost all 18 year olds are clustered around the same starting weekly wage value, almost all distribution across the density kernel width is at around 30K. Players at age 34 seem to have the most uniform distribution of weekly wage, with nearly 75% in the middle have weekly wages in the range 60K to 115K. </p>
+
+
+### Analysis of Player Value distribution with position
+
+<p align='justify'>Here we attempt to show the distribution of player value at different positions. We have associated each player to their preferred position or where they are most likely to play (available in the data as an array of preferred positions for each player). We are making use of box plots with whiskers as well outliers to show the distribution of player value across all popularly played positions in football. Observations from the box plot can help new players and managers get an idea of current player valuation trends at each position.</p>
+
+<p align='center'>
+![Rating vs Age](ValuevsPosBox.png)
+</p>
+
+<p align='justify'> From plotting the data one can see there are clear divisions in player valuation across player position. For the purpose of comparison we are only using the top 100 players in each position. The group with least valuation is of the two wing backs (right and left) having a median valuation of just 1.4-2.1M Euros. This is followed by a group consisting of 4 positions with nearly same valuations – Center Forward, Left Back, Right Back and the Goalkeeper. Surprisingly Center forward which used to be a traditional forward role seems to be eclipsed by roles such as Strikers and Central Attacking Midfielders. The median valuation for Center forwards is 7.5M. Left and Right back defenders have median values of 9.5-10M Euros and Goalkeepers round off this group with median player value of 11M. However there are a lot of goalkeeper outliers who have value of as much as around 60M. </p>
+
+<p align='right'>
+![Rating vs Age](valfpos.png)
+</p>
+
+<p align='justify'>The next group consists of the Left and Right wing forwards, Central Defensive midfielder, and the left and right midfielders. All these positions have a player value median in the range of 14.5M to 18.5M.  Though players between Q1 and Q3 are almost evenly distributed across these groups, it’s the outliers here which are most distinctive. Neymar with a valuation of 123M is a distinct left forward outliers. Others include Lionel Messi at 105M as well as Christiano Ronaldo at 95.5M as right forwards. The next and most valued group consists of the Center Back, the Central Attacking Midfielder, Central Midfielder and finally the Striker. The median value varies from 19 to 23.5M for this group, with both midfielder and the striker positions having many high value outliers like Luis Suarez who as a striker is valued at 97M Euros.</p>
+
+### Correlation between player attributes
+
+<p align='justify'>Speaking of player attributes, there are 35 skills across which all the players have been rated. These ratings contribute to the player’s overall rating and potential. An effort was made to understand which skills are highly correlated with the overall and potential ratings of players. To help perform and visualize the analysis, a correlation matrix was plotted and displayed as a heatmap. The heatmap, which its color-coded scale of correlation coefficient gives a quick overview of which skills are highly correlated and which are negatively correlated. The darker the color of the square, the more is the correlation.</p>
+
+![Rating vs Age](heatmap.png)
+
+<p align='justify'>To deduce which are the skills correlated with the overall, we chose a correlation coefficient greater than or equal to 0.5. Anything between 0.3 and 0.5 is attributed to being mildly correlated.</p>
