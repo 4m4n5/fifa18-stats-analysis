@@ -95,8 +95,7 @@ The D3.js plot will be interactive and dynamic, where one is able to invoke zoom
 
 ![Geographic distribution of players](coolplot.png)
 
-<p align='justify'>Most of the top players are concentrated in Europe and South America. These two circles are significantly bigger than the other circles. Africa, Asia and North America have only few top players compared to Europe and South America. This is clearly seen from the size of the circles. In Europe, (insert country names appropriately seeing the graph, I mean the bigger circles in Europe) have a good number of top players. (Feel free to edit this part to make more sense. I really need help here)
-</p>
+<p align='justify'>This plot clearly shows the concentration of players across the continents. The size of the circles determines the number of top players in each region. Most of the top players are concentrated in Europe and South America. These two circles are significantly bigger than the other circles. Africa, Asia and North America have only few top players compared to Europe and South America though they are bigger in terms of size. This is clearly seen from the size of the circles. In Europe, Spain, Germany, France, Italy and Portugal have a very good number of top players. For South America, it is Brazil and Argentina.  The distribution of top players across regions is useful in predicting the best team according to Nationality.</p>
 
 
 ### Nationality wise analysis
@@ -126,6 +125,7 @@ This gives an indication about which teams are likely to perform better in the c
 
 <p align='justify'>The aggregate overall and potential rating were compared among and between the top 10 football clubs. These clubs were identified to have the best overall rating aggregate.</p>
 
+
 Club          |  Average Rating
 :-------------------------:|:-------------------------:
 	Real Madrid CF | 83.0
@@ -139,7 +139,9 @@ Club          |  Average Rating
 	Manchester United|	79.5
 	Arsenal |	79.5
 
+
 <p align='justify'>The variation of overall rating and potential rating was then demonstrated for these clubs using boxplots. This gives an indication about which teams are likely to perform better in the coming few years. Further ways in which this analysis can be improved is by plotting box plots against the highly and mildly correlated attributes that we saw above to reveal which are the attributes a country’s players are focusing on and make changes in their strategy if deemed fit.</p>
+
 
 Overall Rating             |  Potential Rating
 :-------------------------:|:-------------------------:
@@ -161,12 +163,10 @@ By Wage             |  By Player Value
 
 <p align='justify'>All players have been rated according to their overall performance as well as their potential rating in the future. On basic visual analysis of data it was noticed that a few of the older players had already reached their potential rating. To further delve into this and find an age where overall met the potential, the data was grouped by age and at each age, the average overall and average potential were calculated. These values were plotted as a line graph against the age as the line graph would show a clear trend of changes in these ratings and also if the ratings met at a certain point. </p>
 
-<p align='center'>![Rating vs Age](ovrpotage.png)</p>
+<div style="text-align:center"><img src ="ovrpotage.png" /></div>
 
-<p align='justify'>
-As we can see from the above graph, we notice that overall and potential meet approximately at around age 29 and continue to match as the age goes up. Another interesting tend that was observed is that while overall increases as age increases and peaks between the years 29 to 33, the potential rating actually decreases as age progresses till it meets the potential and then plateaus. There are very few players above the age of 37 and have been ignored as outliers.
-This analysis can be useful for while creating a squad as the age can be used as a factor in deciding whether a player should be retained or dropped. A way that this can be further enhanced is to find the trend of each player attribute across ages to determine the age at which each player attribute peaks.
-</p>
+<p align='justify'>As we can see from the above graph, we notice that overall and potential meet approximately at around age 29 and continue to match as the age goes up. Another interesting tend that was observed is that while overall increases as age increases and peaks between the years 29 to 33, the potential rating actually decreases as age progresses till it meets the potential and then plateaus. There are very few players above the age of 37 and have been ignored as outliers.
+This analysis can be useful for while creating a squad as the age can be used as a factor in deciding whether a player should be retained or dropped. A way that this can be further enhanced is to find the trend of each player attribute across ages to determine the age at which each player attribute peaks.</p>
 
 ### Analysis of Mean Player Value versus Age
 
@@ -222,13 +222,13 @@ The most appropriate way to show any data with only categorical (explanatory) va
 This can be used to make smart & informed decisions about which player to pick for what position not just independently but relatively seeing rankings and consistency of choices across the board. This always gives a good idea of betting odds of a player to success when he is already playing at a certain position.</p>
 
 ### Are they really worth it?
-<p align='justify'>Players have two monetary attributes to them – Wage and Value. There is a large variation between the numbers both in terms of scale, delta difference, and consistency. We wanted to find out if the most valuable players are actually worth that much when to comes to wages. Also, we wanted to see if there is a common trend of players being value higher with comparison to their potential.We chose to present this using a multi axis chart combination chart because of different axis scales for `Overall Score + Potential (on primary y axis)`, `Value (secondary y axis)`, `Wage (Secondary 2 y axis)`. Stacked bar for `Score` and `Potential` because `Potential >= Overall` score so this will give us an idea of players performing to maximum potential and otherwise.
+<p align='justify'>Players have two monetary attributes to them – Wage and Value. There is a large variation between the numbers both in terms of scale, delta difference, and consistency. We wanted to find out if the most valuable players are actually worth that much when to comes to wages. Also, we wanted to see if there is a common trend of players being value higher with comparison to their potential.We chose to present this using a multi axis chart combination chart because of different axis scales for `Overall Score + Potential (on primary y axis)`, `Value (secondary y axis)`, `Wage (Secondary 2 y axis)`. Stacked bar for `Score` and `Potential` because `Potential >= Overall` score so this will give us an idea of players performing to maximum potential and otherwise.</p>
 
 ![Rating vs Age](worth.png)
 
-We found out that Neymar – the player with the highest value  lies in the lower wage category of Top 25 most valued players whereas Sanchez and S. Aguero have wages in Top 5 despite being ranked in the lower side of most valued players. L. Messi, L. Suarez, and C. Ronaldo seem to be most consistent in both categories and have also performed to the best of their potential. P. Dybala and P. Pogba have the most difference between Potential and performance.
+<p align='justify'>We found out that Neymar – the player with the highest value  lies in the lower wage category of Top 25 most valued players whereas Sanchez and S. Aguero have wages in Top 5 despite being ranked in the lower side of most valued players. L. Messi, L. Suarez, and C. Ronaldo seem to be most consistent in both categories and have also performed to the best of their potential. P. Dybala and P. Pogba have the most difference between Potential and performance.</p>
 
-We discovered that wages and values do not necessarily correlate with each other in a direct sense, the next step of further improvement would be to find out the factors that affect the value and wage and wages of a player and their corresponding significance (coefficients).</p>
+<p align='justify'>We discovered that wages and values do not necessarily correlate with each other in a direct sense, the next step of further improvement would be to find out the factors that affect the value and wage and wages of a player and their corresponding significance (coefficients).</p>
 
 ### Correlation between player attributes
 
@@ -238,4 +238,7 @@ We discovered that wages and values do not necessarily correlate with each other
 
 <p align='justify'>To deduce which are the skills correlated with the overall, we chose a correlation coefficient greater than or equal to 0.5. Anything between 0.3 and 0.5 is attributed to being mildly correlated.</p>
 
-## 
+## The Best Squad
+
+<p align='justify'>The aim in this section is to use statistical analysis on our data to find out the best squad for a dream team given a
+</p>
