@@ -170,7 +170,7 @@ This analysis can be useful for while creating a squad as the age can be used as
 
 ### Analysis of Mean Player Value versus Age
 
-<p align='justify'>Here we will be analysing the mean player value over ages 18 to 36, for the top 1000 players ranked as per their overall potential. We have used a bar chart along with a line chart here to display the data, with the ages on the x-axis and the average player value (in millions of Euros) on the y-axis. The observations from this chart can be used by both new players as well association football management to get an idea of current player valuation trends with regards to players at different
+<p align='justify'>Here we will be analyzing the mean player value over ages 18 to 36, for the top 1000 players ranked as per their overall potential. We have used a bar chart along with a line chart here to display the data, with the ages on the x-axis and the average player value (in millions of Euros) on the y-axis. The observations from this chart can be used by both new players as well association football management to get an idea of current player valuation trends with regards to players at different
 ages.</p>
 
 ![Rating vs Age](ValuevsAgeBox.png)
@@ -180,7 +180,7 @@ As per this chart, we can see that are two peaks for player value – One right 
 Next we have focused on the distribution of player value over the ages as opposed to previous plot of average values. For this purpose we have used violin plots, with box plot within. The violin plot is more informative than a simple box plot here because not only does it convey the distribution of the Player Value at each age (through Min,Q1,Median,Q3,Max) but it also shows the kernel density i.e. how common each player value point is by the width of its shape.  
 </p>
 
-========== Violin plot Mean Player Value versus Age ==========
+![Rating vs Age](valAgeViolin.png)
 
 <p align='justify'>The observations here are that most player (between Q1 and Q3) across all ages have nearly violin width. It’s the high performing players who are outliers and pulling up average values at each age. One departure however is again at the age 18, where from the shape of the violin we can make out that 18 year old players are most evenly distributed in the range 8-36 Million. Thus players debuting at age 18 have confirmed chance of being valued highly. Also from the distribution it is apparent that player valuation decreases post 32 for nearly all players apparent from the violin density. </p>
 
@@ -238,7 +238,55 @@ This can be used to make smart & informed decisions about which player to pick f
 
 <p align='justify'>To deduce which are the skills correlated with the overall, we chose a correlation coefficient greater than or equal to 0.5. Anything between 0.3 and 0.5 is attributed to being mildly correlated.</p>
 
-## The Best Squad
+## The Best Squad (User Interaction)
 
-<p align='justify'>The aim in this section is to use statistical analysis on our data to find out the best squad for a dream team given a
+<p align='justify'>The aim in this section is to use statistical analysis on our data to find out the best squad for a dream team given a user selected formation, nationality and/or club. For every given playing formation the program computes the best players for each position in that formation and gives you the best possible player. </p>
+
+<p align='justify'> The program takes input for the following 3 parameters: </p>
+
+> Formation (3-5-2, 4-4-2, 4-3-3, 3-4-3, 5-3-2)
+> Nationality (and/or)
+> Club
+
+<p align='justify'>
+The best team for 4-3-3 formation predicted by the program was:
 </p>
+
+![Rating vs Age](bestsquad.png)
+
+<p align='justify'>
+The best team for 3-5-2 formation for the country Brazil predicted by the program was:
+</p>
+
+![Rating vs Age](bestsquad2.png)
+
+## Predicting player position
+
+<p align='justify'>The ultimate goal of our approach is to assign optimal position to the players depending on their skillset. In this case, three output classes are pre-decided: attack, mid and defense. Since there are many features that are not relevant to deduce our results, we can drop them. Thus, the selection of 30 relevant features is done for improving the accuracy of the model by supplying quality data to the classifier. For example, attributes like personal information are futile for training the classifier and thus can be ignored for analysis. The dataset has a column where the preferred position of the player is stated. A total of 14 positions are then mapped to the 3 predecided classes. </p>
+
+The machine learning models used in this approach are Random Forests and Logistic Regression. In case of Logistic Regression, Multinomial Logistic Regression is used since the dependent classes is a multi-class. Random forests is used with default parameters.
+
+The top 10 most important features for the prediction were :
+```python
+            Attributes                    Coef
+0            Finishing     0.09187908935469322
+1          Positioning     0.04294413649854606
+2         Long passing    0.034394793890987395
+3            Reactions     0.03356310980569168
+4              Volleys     0.02922170807979512
+5        Short passing    0.024554753581556697
+6         Ball control    0.019851379649650565
+7             Crossing     0.01869540014896692
+8          GK reflexes    0.016953298324941423
+9              Marking    0.016796213892711038
+10        Sprint speed     0.01670935869115817
+```
+
+### Results
+
+The resulting confusion matrices for both the models are:
+
+![Rating vs Age](conflr.png)
+![Rating vs Age](confrf.png)
+
+## Unit Testing
