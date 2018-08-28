@@ -1,3 +1,17 @@
+# CS 5010 Final Project
+
+### Group: Knights Who Say Ni
+
+#### Contributors
+* Aman Srivastava (as3ek)
+* Arnab Sarkar (as3uj)
+* Kanika Dawar (kd2hr)
+* Niharika Reddy (nb7ug)
+* Varshini Sriram (vs4vx)
+
+<div style="page-break-after: always;"></div>
+
+
 ## Introduction
 
 <p align='justify'>The project is for people who love data science and have grown up playing football and are FIFA enthusiasts. The data is scraped from the website https://sofifa.com by extracting the Player personal data, followed by Player IDs and their playing and style statistics.
@@ -18,8 +32,9 @@ Insights and correlations between player value, wage, age, special attributes, a
 * Make your dream team
 * Predicting playing position using player statistics
 
-## The Data
+<div style="page-break-after: always;"></div>
 
+## The Data
 ### Data Description
 
 <p align='justify'>The data was scrapped from the sofifa website using a python crawling script. The website contains the data from the EA Sports' game FIFA and gets updated regularly with the release of new versions of the game. data developed by Electronic Arts for the latest edition of their FIFA game franchise. Through several research projects done on soccer analytics, it has been established in the field of academia that the use of data from the FIFA franchise has several merits that traditional datasets based on historical data do not offer. Since 1995 the FIFA Soccer games provide an extensive and coherent scout of players worldwide.</p>
@@ -28,6 +43,8 @@ Insights and correlations between player value, wage, age, special attributes, a
 
 <p align='justify'>The FIFA 18 dataset that has been used for this analysis provides statistics of about 16000 players on over 70 different attributes. These attributes are optimal indicators to determine the performance of a player at a particular playing position.</p>
 
+<div style="page-break-after: always;"></div>
+
 ### Data Collection
 <p align='justify'>After extensively studying the structure of the website, the crawler was designed to scrape the website in two steps. The first step was to scrape the main page of the webpage which contains basic player information in a table. Apart from extracting the basic player info the crawler extracted the url of the player's detailed statistics page.</p>
 
@@ -35,7 +52,7 @@ Insights and correlations between player value, wage, age, special attributes, a
 
 ![Main Page of the website](mainpage.png)
 
-<br>
+<div style="page-break-after: always;"></div>
 
 <p align='justify'>The next step was to use the collected urls for individual players to scrape data from their details page. This page contained skill statistics, team affiliations and performance statistics for the player.</p>
 
@@ -45,9 +62,11 @@ Insights and correlations between player value, wage, age, special attributes, a
 
 <br>
 
+<div style="page-break-after: always;"></div>
+
 ### Content
 
-<p align='justify'>The scrapped dataset has the following properties: </p>
+The scrapped dataset has the following properties:
 
 * Every player featuring in FIFA 18
 * 70+ attributes
@@ -71,8 +90,7 @@ Index(['ID', 'Photo', 'Name', 'Age', 'Nationality', 'Flag', 'Overall',
        'Strength', 'Vision', 'Volleys', 'CAM', 'CB', 'CDM', 'CF', 'CM', 'LAM',
        'LB', 'LCB', 'LCM', 'LDM', 'LF', 'LM', 'LS', 'LW', 'LWB',
        'Preferred Positions', 'RAM', 'RB', 'RCB', 'RCM', 'RDM', 'RF', 'RM',
-       'RS', 'RW', 'RWB', 'ST'],
-      dtype='object')
+       'RS', 'RW', 'RWB', 'ST'], dtype='object')
 ```
 
 ### Data Cleaning and Manipulation
@@ -97,6 +115,7 @@ The D3.js plot will be interactive and dynamic, where one is able to invoke zoom
 
 <p align='justify'>This plot clearly shows the concentration of players across the continents. The size of the circles determines the number of top players in each region. Most of the top players are concentrated in Europe and South America. These two circles are significantly bigger than the other circles. Africa, Asia and North America have only few top players compared to Europe and South America though they are bigger in terms of size. This is clearly seen from the size of the circles. In Europe, Spain, Germany, France, Italy and Portugal have a very good number of top players. For South America, it is Brazil and Argentina.  The distribution of top players across regions is useful in predicting the best team according to Nationality.</p>
 
+<div style="page-break-after: always;"></div>
 
 ### Nationality wise analysis
 
@@ -106,6 +125,8 @@ The D3.js plot will be interactive and dynamic, where one is able to invoke zoom
 
 
 <p align='justify'>The above plot demonstrates that South American, African and European players are generally rated higher than their counterparts from Asia, Australia or North America. While the nationwide average rating for USA stands at 65.81 and 58.06 for India it is about 71.24 for Brazil and 69.11 for China.</p>
+
+<div style="page-break-after: always;"></div>
 
 ### Countries with the best aggregate player ratings
 
@@ -149,6 +170,8 @@ Overall Rating             |  Potential Rating
 
 <p align='justify'>The mean overall is seen to be highest for Real Madrid followed by Juventus, FC Bayern Munich, FC Barcelona and Manchester City. However, in terms of potential, FC Barcelona seems to have overtaken Real Madrid, indicating a presence of a lot of young talent at the club.</p>
 
+<div style="page-break-after: always;"></div>
+
 ### Player earnings at top clubs
 
 <p align='justify'>A quick way to understand which clubs command the highest salaries is to plot the wages as a box-plot. This gives all the important statistical metrics as well as the spread about the mean.To do this analysis, the top 10 clubs by median overall rating were chosen and their wages depicted as box plots.</p>
@@ -184,6 +207,8 @@ Next we have focused on the distribution of player value over the ages as oppose
 
 <p align='justify'>The observations here are that most player (between Q1 and Q3) across all ages have nearly violin width. It’s the high performing players who are outliers and pulling up average values at each age. One departure however is again at the age 18, where from the shape of the violin we can make out that 18 year old players are most evenly distributed in the range 8-36 Million. Thus players debuting at age 18 have confirmed chance of being valued highly. Also from the distribution it is apparent that player valuation decreases post 32 for nearly all players apparent from the violin density. </p>
 
+<div style="page-break-after: always;"></div>
+
 ### Analysis of Player Weekly wage over Age
 
 <p align='justify'>We have used box plots and line plots to show the average weekly wage of players (y-axis) versus the age of players (x-axis). As before we are only considering the subset of top 1000 players aged between 18 and 36. Like the valuation data, observations from this plot can be used by new players and association football management to get an idea of current player wages for different age groups.</p>
@@ -198,6 +223,7 @@ Next we have focused on the distribution of player value over the ages as oppose
 
 <p align='justify'>Here we observe that almost across all ages the weekly wage is uniformly distributed 25-75k range as apparent from the distribution of density kernel shape. The average weekly wage is however being driven up due to extremely well paid players in each group, which are visible as outlying points in the point. From ages 25-32 we can also see that there is a large distribution of players who earn more than 100K euros a week. Not surprisingly almost all 18 year olds are clustered around the same starting weekly wage value, almost all distribution across the density kernel width is at around 30K. Players at age 34 seem to have the most uniform distribution of weekly wage, with nearly 75% in the middle have weekly wages in the range 60K to 115K. </p>
 
+<div style="page-break-after: always;"></div>
 
 ### Analysis of Player Value distribution with position
 
@@ -252,13 +278,13 @@ This can be used to make smart & informed decisions about which player to pick f
 The best team for 4-3-3 formation predicted by the program was:
 </p>
 
-![Rating vs Age](bestsquad.png)
+<div align='center'><img src="bestsquad.png" align="center" width="300" height="350" /></div>
 
 <p align='justify'>
 The best team for 3-5-2 formation for the country Brazil predicted by the program was:
 </p>
 
-![Rating vs Age](bestsquad2.png)
+<div align='center'><img src="bestsquad2.png" align="center" width="300" height="350" /></div>
 
 ## Predicting player position
 
@@ -286,7 +312,62 @@ The top 10 most important features for the prediction were :
 
 The resulting confusion matrices for both the models are:
 
-![Rating vs Age](conflr.png)
-![Rating vs Age](confrf.png)
+<div align='center'><img src="confrf.png" align="center" width="400" height="350" /></div>
+<p align='center'>Logistic Regression</p>
+
+<div align='center'> <img src="confrf.png" width="400" height="350"/></div>
+<p align='center'>Random Forest</p>
+
+<div style="page-break-after: always;"></div>
 
 ## Unit Testing
+
+<p align='justify'>Ten unit tests were written to test the five methods defined and used in the program.</p>
+
+The methods used were:
+* in_preferred_position:
+>to check whether a position is there in a list of positions
+A list of positions was defined and two unit tests were carried out on this function. The first test checked with a position present in the list. The function returned True. The second test checked for a position that was not present in the list. The function returned False.
+
+* str2number: to convert a string to a number
+>Two unit tests were written to check whether the wage(€565K') and value('€95.5M') variables were converted to numbers. The function returned 95500000.0 and 565000.0 respectively.
+
+* convert_to_float: to convert values to float
+>Two unit tests were written to check whether integers were converted to float type numbers using Attribute values like Agility and Balance. The function returned the values with decimal places.
+
+* find_continent: to return the continent for each country
+>Two unit tests were carried out to check if the right continent was returned for the country values.
+
+* get_best_squad: to give the best squad of players given the formation and country/club
+>Two unit tests were written to verify whether the function returns the squad correctly.
+All the tests passed successfully.
+
+<div style="page-break-after: always;"></div>
+
+## BIBLIOGRAPHY
+
+LIBRARIES
+
+* numpy
+* pandas
+* plotly
+* seaborn
+* json
+* matplotlib
+* itertools
+* sklearn
+* IPython
+* string
+* re
+
+WEBSITES
+
+* https://stackoverflow.com/
+* https://kaggle.com/
+* https://seaborn.pydata.org/
+* https://seaborn.pydata.org/examples/index.html
+* https://wiki.python.org/moin/PythonGraphLibraries
+* https://python-graph-gallery.com/
+* https://github.com/
+* https://plot.ly/python/
+* https://pandas.pydata.org/
